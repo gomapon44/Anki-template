@@ -1,0 +1,51 @@
+<div class="answer">
+	<div class="english">{{英文１}} <span class="brank">{{正解}}</span><span class="eg2">{{英文２}}</span></div>
+	<div class="japanese">{{和訳}}</div>
+</div>
+
+<div class="container">
+	<div class="titlebox"><p>解説</p></div>
+	<div class="commentary">{{解説}}</div>
+</div>
+
+
+{{#語彙}}<div class="container">
+	<div class="titlebox"><p>単語</P></div>
+	<div class="commentary">{{語彙}}</div>
+</div>{{/語彙}}
+
+<div class="ID">
+	<p>{{ID}}</>
+	<p>{{出題１}}</>
+	<p>{{出題２}}</>
+	<p>{{出題３}}</>
+	<p>{{出題４}}</>
+</div>
+
+<div class="debug"></div>
+<div class="eg1">{{英文１}}</div>
+
+
+<script>
+	var answer = $(".brank").html();
+	var eg1 = $(".eg1").html();
+	var newAns = "";
+	var eg2 = $(".eg2").html();
+
+	if (eg2.charAt(0) == ",") {
+		$(".eg2").html(eg2);
+	} else if (eg2.charAt(0) == ".") {
+		$(".eg2").html(eg2);
+	} else if (eg2.charAt(0) == "!") {
+		$(".eg2").html(eg2);
+	} else if (eg2.charAt(0) == "?") {
+		$(".eg2").html(eg2);
+	} else {
+		$(".eg2").html(" "+eg2);
+	}
+	
+	if (eg1 == "") {
+		newAns = answer.charAt(0).toUpperCase() + answer.slice(1);
+		$(".brank").html(newAns);
+	}
+</script>

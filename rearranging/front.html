@@ -1,0 +1,112 @@
+<div class="question">
+	<div class="english">{{英文１}}<span class="brank"> (　　)</span><span class="eg2">{{英文２}}</span></div>
+	<div class="japanese">{{和訳}}</div>
+</div>
+
+<div class="memo">{{メモ}}</div>
+<div class="words_container">
+	<div class="after_view"></div>
+	<div class="arrow">⬇︎</div>
+	<div class="answer_view">{{正解}}</div>
+	<div class="words"></div>
+<div class="result NG">✖︎</div>
+<div class="result OK">✔︎</div>
+	<div class="check">check</div>
+</div>
+
+<div class="before">{{選択肢}}</div>
+<div class="jpSwitch">{{和訳表示}}</div>
+<div class="debug"></div>
+
+
+<script>
+	var before = $(".before").html();
+	var before_ar = before.split("/");
+	var after = ""
+	var after_ar = [];
+	var answer = $(".answer_view").html();
+	var answer_ar = answer.split(" ");
+	var jpSwitch = $(".jpSwitch").html();
+	var eg2 = $(".eg2").html();
+
+	if (eg2.charAt(0) == ",") {
+		$(".eg2").html(eg2);
+	} else if (eg2.charAt(0) == ".") {
+		$(".eg2").html(eg2);
+	} else if (eg2.charAt(0) == "!") {
+		$(".eg2").html(eg2);
+	} else if (eg2.charAt(0) == "?") {
+		$(".eg2").html(eg2);
+	} else {
+		$(".eg2").html(" "+eg2);
+	}
+
+	if (jpSwitch == "0") {
+		$(".japanese").css("display", "none");
+	}
+	
+	$.each(before_ar, function(index, val){
+		$("<span>"+val+"</span>").appendTo(".words").addClass("word_on");
+	});
+
+	$(".words").on("click touchend", ".word_on", function(){
+		var text = $(this).html()
+		after_ar.push(text)
+		after = after_ar.join(" ");
+
+		var commaIndex = after.indexOf(",");
+		if (commaIndex != -1) {
+			after = after.slice(0,commaIndex-1) + after.slice(commaIndex);
+		}
+
+		$(".after_view").html(after);
+		$(this).removeClass("word_on");
+		$(this).addClass("word_off");
+	});
+
+	$(".words").on("click touchend", ".word_off", function(){
+		var text = $(this).html();
+		var index = after_ar.indexOf(text);
+		after_ar.splice(index, 1);
+		after = after_ar.join(" ");
+		$(".after_view").html(after);
+		$(this).removeClass("word_off");
+		$(this).addClass("word_on");
+	});
+
+	$(".check").on("click touchend", function(){
+		$(".words").css("display", "none");
+		$(this).css("display", "none");
+		
+		/* ミスチェック */
+		var new_aft_ar = [];
+		var check_ar = after.split(" ");
+		$.each(answer_ar, function(index, val){
+			var ans_text = val;
+			var aft_text = check_ar[index];
+			if (aft_text === undefined) {
+				new_aft_ar.push("<span>"+ "＿＿" +"</span>");
+			} else if (ans_text != aft_text){
+				new_aft_ar.push("<span>"+ aft_text +"</span>");
+			} else {
+				new_aft_ar.push(aft_text);
+			}
+		});
+		if (new_aft_ar[0] == "<span></span>") {
+			new_aft_ar.push("<span>"+ "＿＿" +"</span>");
+		}
+		after = new_aft_ar.join(" ");
+		$(".after_view").html(after);
+
+		/* 結果表示 */
+		if (answer_ar.join("") == check_ar.join("")){
+			$(".OK").css("display", "block");
+		} else {
+			$(".NG").css("display", "block");
+			$(".answer_view").css("display", "block");
+			$(".arrow").css("display", "block");
+		}
+	});
+	
+	$(".debug").html("debug");
+</script>

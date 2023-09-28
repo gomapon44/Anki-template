@@ -1,0 +1,180 @@
+/* common */
+.card {
+  font-family: 'Hiragino Kaku Gothic ProN','ヒラギノ角ゴ ProN W3',sans-serif;
+  font-size: 20px;
+  text-align: center;
+  color: #646464;
+  background-color: #ffffff;
+}
+
+.debug {
+	display: none;
+}
+
+
+/* side-question */
+.question {
+	margin: 30px;
+	padding: 15px 20px;
+	text-align: left;
+	border: solid 1px #ffd800;
+	border-radius: 5px;
+}
+
+.question .japanese {
+	margin-top: 15px;
+	padding-top: 15px;
+	border-top: solid 1px #ffd800;
+	font-size: 16px;
+}
+
+.brank {
+	display: inline;
+}
+
+.memo {
+	font-size: 14px;
+	text-align: left;
+	margin-left: 30px
+}
+
+.words_container {
+	margin: 15px 25px;
+	padding: 0px;
+	text-align: left;
+}
+
+.after_view {
+	border-bottom: solid 1px #ffd800;
+	margin: 5px 5px;
+}
+
+.after_view::before {
+	content: "";
+	display: inline-block;
+}
+
+.answer_view {
+	border-bottom: solid 1px #ffd800;
+	margin: 10px 5px;
+	display: none;
+}
+
+.after_view span {
+	background: linear-gradient(transparent 50%, #ffd800 50%);
+}
+
+.arrow {
+	text-align: center;
+	display: none;
+}
+
+.word_on {
+	display: inline-block;
+	padding: 2px 10px;
+	margin: 10px 5px;
+	border-radius: 5px;
+	border: 1px solid #ffd800;
+}
+
+.word_off {
+	display: inline-block;
+	padding: 2px 10px;
+	margin: 10px 5px;
+	border-radius: 5px;
+	color: #aaaaaa;
+	background: #f5f5f5;
+	border: 1px solid #f5f5f5;
+}
+
+.words {
+	margin: 20px 0;
+}
+
+.check {
+	color: white;
+	background-color: #ffd800;
+	text-align: center;
+	border-radius: 5px;
+	margin: 20px 35px;
+}
+
+.result {
+	color: #ffd800;
+	font-size: 40px;
+	text-align: center;
+	display:none
+}
+
+.before {
+	display: none;
+}
+
+.jpSwitch {
+	display: none;
+}
+
+
+/* side-answer */
+
+.answer {
+	margin: 30px 30px 15px;
+	padding: 15px 20px;
+	text-align: left;
+	border: solid 1px #ffd800;
+	border-radius: 5px;
+}
+
+.answer .brank {
+	background: linear-gradient(transparent 50%, #ffd800 50%);
+}
+
+.answer .japanese {
+	margin-top: 15px;
+	padding-top: 15px;
+	border-top: solid 1px #ffd800;
+	font-size: 16px;
+}
+
+.container {
+	display: flex;
+	margin: 15px 30px;
+}
+
+.titlebox {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border-radius: 5px 0 0 5px;
+	flex: 0 0 40px;
+	background: #888888
+}
+
+.titlebox p {
+	font-size: 12px;
+	color: #ffffff;
+	text-align: center;
+}
+
+.commentary {
+	padding: 10px 10px;
+	text-align: left;
+	background: #f5f5f5;
+	border-radius: 0 5px 5px 0;
+	font-size: 14px;
+	flex: 1 1 auto;
+}
+
+.ID {
+	margin: 15px 30px;
+	text-align: right;
+	font-size: 10px;
+}
+
+.ID p {
+	margin: 0px;
+}
+
+.eg1 {
+	display: none;
+}

@@ -1,5 +1,5 @@
 # Ankiテンプレート
-制作時期：2023/08-
+制作時期：2023/08-  
 開発環境：Mac版Anki内のGUIに直接入力  
 使用言語：HTML、CSS、JavaScript、jQuery
 
